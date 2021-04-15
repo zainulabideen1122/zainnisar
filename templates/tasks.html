@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family:sans-serif;
+            }
+        .nav{
+            text-align: center;
+            font-weight: bolder;
+            padding:1px;
+            font-size: 1.5rem;
+            box-shadow:0 3px 20px #ecf0f1;
+            }
+        .add_sign{
+            border:none;
+            background-color: #f39c12;
+            padding:5px 15px;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 50%;
+            margin-top: 5vh;
+            cursor: pointer;
+        }
+        .add_sign:active{
+            border-radius: 50%;
+        }
+        .adding_form{
+            text-align: center;
+        }
+        .adding_form input{
+            border: 1px solid #bdc3c7;
+            padding:1rem;
+            width: 25%;
+        }
+        .adding_form label{
+            font-weight: bolder;
+            padding-right: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .adding_form button{
+            margin-left: 1rem;
+        }
+        .task_data{
+            text-align: center;
+            margin-top: 4vh;
+        }
+        .task_data p {
+            text-transform: uppercase;
+            font-weight: bolder;
+            font-size: 1.2rem;
+        }
+        .task_status{
+            margin:2.5vh 0 4vh;
+        }
+        .task_status span, .task_status a{
+            margin: 0 10px;
+        }
+        .notComplete_box{
+            background-color: rgba(243, 156, 18, 0.3);
+        }
+        .Complete_box{
+            background-color: rgba(0, 128, 0, 0.2);
+        }
+        .task_status a{
+            text-decoration: none;
+            color: black;
+        }
+        .update_btn{
+            background-color: rgba(0, 128, 0, 0.2);
+        }
+        .delete_btn{
+            background-color: rgba(231, 76, 60,0.2);
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="nav">
+        <h1>Organ<span style="color:#f39c12">izer</span></h1>
+    </div>
+    <div class="adding_form">
+    <form action="tasks/add_task" method="post">
+        <div>
+            <label for="title">Task Name</label>
+            <input type="text" name="title" placeholder="Enter your task..">
+            <button class="add_sign" type="submit" >+</button>
+        </div>
+    </form>
+    </div>
+
+    <div class="task_data">
+    {% for todo in todo_list %}
+        <p>{{ todo.id}} : {{ todo.task }} </p>
+        
+        <div class="task_status">
+        {% if todo.complete == False %}
+            <span class="notComplete_box" style="padding: 10px;"><i style="color: #f39c12;" class="fas fa-close"></i> Not Completed</span>
+        {% else %}
+            <span class="Complete_box" style="padding: 10px;"><i style="color: green;" class="fas fa-check"></i> Completed</span>
+        {% endif %}
+
+        <a class="update_btn" style="padding: 10px;" href="/tasks/update/{{ todo.id}}"> <i style="color: green;" class="fas fa-tasks"></i> Update</a>
+        <a class="delete_btn" style="padding: 10px;" href="/tasks/delete/{{ todo.id}}"><i style="color: red;" class="fa fa-trash"></i> Delete</a>
+        </div>
+
+    {% endfor %}
+    </div>
+</body>
+</html>

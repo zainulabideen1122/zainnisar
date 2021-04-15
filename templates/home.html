@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family:sans-serif;
+            }
+        .nav{
+            text-align: center;
+            font-weight: bolder;
+            padding:1px;
+            font-size: 1.5rem;
+            box-shadow:0 3px 20px #ecf0f1;
+            }
+        .home_page{
+            display:grid;
+            grid-template-columns: repeat(2, 1fr);
+            height: 80vh;
+            }
+        .home_content{
+                font-family: 'Noto Sans', sans-serif;
+                font-size: 1.2rem;
+                padding-left: 30%;
+                padding-top: 15vh;
+            }
+        .home_content h1{
+                font-size: 3rem;
+            }
+        .home_content a {
+                text-decoration: none;
+            }
+        .home_image{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        .home_btn{
+                width: 20%;
+                text-align: center;
+                padding:0.5rem 1rem;
+                background-color: #f39c12;
+                color: white;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: 0.5s ease;
+            }
+        .home_btn:hover{
+            border-radius: 0;
+            transition: 0.5s ease;
+            box-shadow: 5px 5px grey;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <h1>Organ<span style="color:#f39c12">izer</span></h1>
+</div>
+
+<div class="home_page">
+    <div  class="home_content">
+        <h1>Stay Organized</h1>
+        <h1>Stay Creative</h1>
+        <p>Join millions of people to capture ideas, organize life, and do something creative everyday.</p>
+        <a href="tasks"><div class="home_btn">Get Started !</div></a>
+    </div>
+    <div class="home_image">
+        <img src="https://d3qg9zffrnl4ph.cloudfront.net/static/build/sites/images/d3e907c94aea09975ca830971f14dd94.png" alt="Home Image">
+    </div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body>
+</html>
