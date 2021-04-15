@@ -1,0 +1,3 @@
+1. Run the server by commanding main.py in cmd/terminal
+
+2. /templates/home.html => run this program
